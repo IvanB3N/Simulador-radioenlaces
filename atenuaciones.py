@@ -32,25 +32,17 @@ def atenuaciones(f,d,Gr,Gt,por,zon,latitud,h):
 
     dic = {99:0, 97:1, 90:2, 70:3, 0:4}
     
-    # f = 72 # GHz frecuencia de operacion
-    # d = 10 # distancia radioenlace [km]
-
-    #latitud = 1.12 # [deg] latitud ciudad de Pasto
-    #h = 2.530 # altura sobre el nivel del mar [km]
     estacion = 'verano' 
     
     porc = dic[por]
 
     R = porcentajes[zon][porc]
-    print(R)
-    #R = 95 # intensidad de lluvia mm/h
+
     pt = (100-por)/100 #  porcentaje de tiempo en un margen entre el 0,001% y 1% (%)
 
     M = 0.05 #g/m³
 
     Pt_max = 0.5 # watt Potencia de transmision maxima 500 mW
-    # Gr = 34 # Ganancias antena de recepccion [dBi]
-    # Gt = 34 # Ganancia antena de transmision [dBi]
 
     [T, p, e] = datos_climatologicos(latitud, h, estacion)
     

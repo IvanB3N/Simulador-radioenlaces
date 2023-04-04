@@ -32,8 +32,6 @@ def puntos_(gt, Xsize, Ysize):
     punto3 = (lry, ulx) # esquina izquierda inferior
     punto4 = (uly, lrx) # esquina derecha superior
     
-    # print('UL', punto1, "\n", 'LR', punto2,
-    #       'LL', punto3, "\n", 'UR', punto4)
     
     return punto1, punto2, punto3, punto4
 
@@ -49,12 +47,5 @@ def coordenadas_Geo2cart(latitud, longitud, resolucion, L1):
 
    
 
-def filtroPM(x,N):
-    L = x.shape[0]
-    xtemp = np.zeros([L+(N-1),1])*1.0
-    xtemp[(N-1):] = x
-    y = np.zeros(x.shape)
-    for i in range(0,L):
-        y[i] = xtemp[i:i+(N)].sum()/float(N)
-    return y
+
 
