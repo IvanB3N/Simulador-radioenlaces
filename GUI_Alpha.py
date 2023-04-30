@@ -119,7 +119,7 @@ class MainWidget(QWidget, Alpha.Ui_Form):
         gainR = self.Gr.text()  #Ganancia por elemento en arreglo
         gainR = float(gainR) #Conversion String -> Float
         
-        gmax_db = round(10*np.log10(nElement*gainR),2) #Calculo de ganancia maxima para arreglo de antenas
+        gmax_db = round((10*np.log10(nElement))+gainR,2) #Calculo de ganancia maxima para arreglo de antenas
         
         #Validacion de archivos cargados
         if ".tif" != os.path.splitext(fn_dem)[1]:
