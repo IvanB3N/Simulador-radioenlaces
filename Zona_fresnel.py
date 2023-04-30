@@ -134,7 +134,6 @@ def calculo_torres(f,distancia_x,perfil,estado,torre_fija,htorre,n):
         #Calculo de vector para graficar linea de vista y verificar si la altura de las torres es correcta        
         vector, htorres , varRaw = calcularLoS(distancia_x, perfil,htorres)
         
-    
     return htorres, rn, vector + rn
 
 #  Sin obstaculos
@@ -290,7 +289,6 @@ def calcularLoS(distancia_x, perfil,htorres):
     vector = generarVectorLoS(y1,y2,x1,x2,distancia_x) #Se calcula el vector linea de vista
 
     a , flag, ubicacionObs = verificarLoS(vector, perfilCrudo,htorres) #Verificar si existen obstaculos en vector de LoS
-
     if flag == True and htorres > a:
         vector = vector + a + htorres      #Se suman la variable 'a' en caso de obscatulo y la altura de torres        
     elif flag == True and htorres < a:
@@ -298,7 +296,7 @@ def calcularLoS(distancia_x, perfil,htorres):
     else:
         vector = vector + htorres
         
-    return vector , htorres + a , ubicacionObs
+    return vector , a , ubicacionObs
 
 def calcularLoSTorreFija(distancia_x, perfil,htorres,torre_fija,htorre,estado,rn):
     '''
