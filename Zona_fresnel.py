@@ -56,9 +56,9 @@ def calculo_torres(f,distancia_x,perfil,estado,torre_fija,htorre,n):
             
             #Calculo de torres y vector de Linea de vista libre sin torre fija
             vector, htorres = calcularLoSTorreFija(distancia_x, perfil, rn, torre_fija, htorre, estado,rn)
-            
+            flag = False
             #Calcular Zona Fresnel
-            varRaw, varRaw_, ubicacionObs = calcularLoS(distancia_x, perfil,0) # Se obtiene ubicacion del obstaculo en el vector
+            varRaw, varRaw_, ubicacionObs = calcularLoS(distancia_x, perfil,0,flag) # Se obtiene ubicacion del obstaculo en el vector
             
             #En este caso, se toman nuevos valores de distancia, si existe un obstaculo entre los puntos
             if(ubicacionObs != 0):    
