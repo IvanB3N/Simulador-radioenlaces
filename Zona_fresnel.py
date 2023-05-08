@@ -114,7 +114,6 @@ def calculo_torres(f,distancia_x,perfil,estado,torre_fija,htorre,n):
                 d1 = distancia_x[ubicacionObs]
                 d2 = np.max(distancia_x) - distancia_x[ubicacionObs]
                 rn = calculo_torres1(f,d1,d2,n) #Es necesario calcular Zona Fresnel de nuevo si se cambia las distancias
-            print("caso obstaculo")
    
         else:
             flag = False          
@@ -122,20 +121,17 @@ def calculo_torres(f,distancia_x,perfil,estado,torre_fija,htorre,n):
                 hobs = hobs - c1
                 h = c2 - c1
                 htorres, rn = calculo_torres2(f, d1, d2, h, n, hobs)
-                print("caso 2 mayor a 1")
                 
     
             if c1==c2:
                 # Los puntos Tx y Rx estan al mismo nivel
                 htorres, rn = calculo_torres3(f, d2, d1, n, hobs)
-                print("caso iguales")
     
                 
             if c1>c2:#El valor de altura inicial es mayor que el final, se referencia puntos respecto al menor 
                 hobs = hobs - c2
                 h = c1 - c2
                 htorres , rn= calculo_torres2(f, d2, d1, h, n, hobs)
-                print("caso 1 mayor a 2")
                 
         #Calculo de vector para graficar linea de vista y verificar si la altura de las torres es correcta        
         vector, htorres , varRaw = calcularLoS(distancia_x, perfil,htorres,flag)
@@ -304,6 +300,8 @@ def calcularLoS(distancia_x, perfil,htorres,flagTorre):
 
     if(flagTorre):
         a = a + htorres
+    if(a==0):
+        a = htorres
 
     return vector , a, ubicacionObs
 

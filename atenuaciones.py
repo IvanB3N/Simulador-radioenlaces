@@ -9,7 +9,7 @@ import math
 
 
 
-def atenuaciones(f,d,Gr,Gt,por,zon,latitud,h):
+def atenuaciones(f,d,Gr,Gt,por,zon,latitud,h,anchoBanda,potTr):
     #Constantes extraidas de documentacion
     porcentajes = {
     'A' : [8,5,2,0.8,0.99] , #99% , 97% , 90% , 70% , 0%
@@ -42,12 +42,12 @@ def atenuaciones(f,d,Gr,Gt,por,zon,latitud,h):
 
     M = 0.05 #g/m³
 
-    Pt_max = 0.5 # watt Potencia de transmision maxima 500 mW
+    Pt_max = potTr # watt Potencia de transmision maxima 500 mW
 
     [T, p, e] = datos_climatologicos(latitud, h, estacion)
     
     k = 1.39e-23 # Cosntante de Boltzman
-    b = 1e9      # Ancho de banda mmWave
+    b = anchoBanda*1e9      # Ancho de banda mmWave
     pw = k*T*b   # Potencia de ruido
     
     PN_dbm = 10*math.log10(1000*pw)

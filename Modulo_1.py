@@ -1,8 +1,8 @@
-#!/usr/bin/env python3
+
 # -*- coding: utf-8 -*-
 
 # In[Librerias]
-from osgeo import gdal, ogr
+from osgeo import gdal
 import numpy as np
 import matplotlib.pyplot as plt
 import math

@@ -45,7 +45,12 @@ def coordenadas_Geo2cart(latitud, longitud, resolucion, L1):
     y = abs(round((L1[0]-latitud)/resolucion))
     return y, x
 
-   
+def isfloat(valor):
+  try:
+    float(valor)
+    return True
+  except ValueError:
+    return False
 
 
 
